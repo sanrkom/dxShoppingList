@@ -54,7 +54,7 @@ var CloudDAL = function () {
 var ViewModel = function () {
     var self = this;
 
-	var cloudDAL = new CloudDAL();
+    var cloudDAL = new CloudDAL();
 
     self.newItem = ko.observable();
 
