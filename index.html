@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My shopping list</title>
+		
+		<script id="facebook-jssdk" src="http://connect.facebook.net/en_US/all.js"></script>
+		<script src="libs/jquery-2.0.3.min.js" type="text/javascript"></script>
+		<script src="libs/knockout-2.2.0.js" type="text/javascript"></script>	
+
+		<script src="libs/dx.cloud-1.0.0.js" type="text/javascript"></script>
+
+		<script src="index.js" type="text/javascript"></script>
+
+	    <link rel="stylesheet" type="text/css" href="index.css" />
+
+
+		<script>
+		    
+			var APP_ID = 'app1a994143313546739cc80b28e6b988ac';
+			var API_KEY = 'sk9j7IBVUb4Wf5n79iUkrC6rsCh9NJ8L';
+		    
+		    $(document).ready(function () {
+		        
+			    DXCloud.init({
+				    applicationId: APP_ID,
+				    apiKey: API_KEY
+				});
+		        
+			    /*DXCloud.init({
+				    applicationId: 'YOUR_APP_ID',
+				    apiKey: 'YOUR_API_KEY'
+				});*/
+
+		        ko.applyBindings(new ViewModel());
+		    });
+		</script>
+
+	</head>
+	<body>		
+		<div class="login-content">
+	    	<h2>DXCloud - demo DXShoppingList</h2>
+	    </div>
+		<div class="demo-content">
+		    <input class="new-item" type="text" name="name" value=" " placeholder="what needs to be buy?" data-bind="value: newItem, event: { keypress: createItem }" />
+		    <div class="items-container">
+		        <table class="items" data-bind="foreach: items">
+		            <tr class="item">	            
+		                <td class="item-check"><input type="checkbox" data-bind="checked: hasBuyed, click: $parent.checkItem" /></td>
+		                <td class="item-text" data-bind="text: text"></td>
+		                <td class="item-remove" data-bind="click: $parent.removeItem">remove</td>
+		            </tr>
+		        </table>
+		    </div>
+		</div>
+	</body>
+</html>
