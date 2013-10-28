@@ -11,7 +11,6 @@ var CloudDAL = function () {
                 result.resolve(entity, params);
             },
             error: function (err) {
-                alert('error');
                 result.reject(err);
             }
         });
@@ -27,7 +26,6 @@ var CloudDAL = function () {
                 result.resolve(params);
             },
             error: function (err) {
-                alert('error');
                 result.reject(err);
             }
         });
@@ -42,7 +40,6 @@ var CloudDAL = function () {
                 result.resolve(entities, params);
             },
             error: function (err) {
-                console.log(err);
                 result.reject(err);
             }
         });
